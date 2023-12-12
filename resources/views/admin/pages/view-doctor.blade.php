@@ -16,7 +16,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('admin.pages.dashboard')}}">Home</a></li>
                 <li class="breadcrumb-item active">Manage Doctors</li>
               </ol>
             </div><!-- /.col -->
@@ -30,7 +30,7 @@
             <div class="card-header">
               <h3 class="card-title">All Doctors</h3>
               <div class="card-tools">
-                <a href="{{route('admin.add.doctor')}}" class="btn btn-primary">
+                <a href="{{route('admin.pages.doctor.add.form')}}" class="btn btn-primary">
                   Add Doctor
                 </a>
               </div>
@@ -42,32 +42,27 @@
                 <tr>
                   <th>SN.</th>
                   <th>Doctor Name</th>
-                  <th>Specialization</th>
-                  <th>Avalibility</th>
-                  <th>Hospital</th>
-                  <th>User_id</th>
+                  <th>Doctor Email</th>
                   <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                    
+                  @foreach($user as $index => $users)
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    <td></td>
+                      <td>{{$index + 1}}</td>
+                      <td>{{$users->name}}</td>
+                      <td>{{$users->email}}</td>
                       
                       <td class="d-flex">
-                          <a href="{{route('admin.edit.doctor')}}" class="btn btn-primary btn-sm mr-1">
+                          <a href="{{route('admin.pages.edit.doctor', ['id' => $users->id])}}" class="btn btn-primary btn-sm mr-1">
                             <i class="fas fa-edit"></i>
                           </a>
-                        <a class="btn btn-danger btn-sm">
+                        <a href="{{route('admin.pages.delete.doctor', ['id' => $users->id])}}" class="btn btn-danger btn-sm">
                           <i class="fas fa-trash"></i>
                         </a>
                       </td>
                     </tr>
+                    @endforeach
                 </tfoot>
               </table>
             </div>

@@ -16,8 +16,8 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="{{route('admin.view.product')}}"> Products</li>
+                <li class="breadcrumb-item"><a href="{{route('admin.pages.dashboard')}}">Home</a></li>
+                <li class="breadcrumb-item active"><a href="{{route('admin.pages.view-product')}}"> Products</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -30,7 +30,7 @@
             <div class="card-header">
               <h3 class="card-title">Vew All Products</h3>
               <div class="card-tools">
-                <a href="{{route('admin.add.product')}}" class="btn btn-primary">
+                <a href="{{route('admin.pages.product.add.form')}}" class="btn btn-primary">
                   Add Product
                 </a>
               </div>
@@ -43,32 +43,32 @@
                   <th>SN.</th>
                   <th>Product Name</th>
                   <th>Description</th>
-                  <th>Quality</th>
+                  <th>Quantity</th>
                   <th>Price</th>
-                  <th>User Id</th>
                   <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                    
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    <td></td>
-                      
-                      <td class="d-flex">
-                          <a href="{{route('admin.edit.product')}}" class="btn btn-primary btn-sm mr-1">
-                            <i class="fas fa-edit"></i>
-                          </a>
-                        <a class="btn btn-danger btn-sm">
-                          <i class="fas fa-trash"></i>
+
+                  @foreach($products as $index => $product)
+                 <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $product->product_name }}</td>
+                    <td>{{ $product->product_description }}</td>
+                    <td>{{ $product->quantity }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td class="d-flex">
+                        <a href="{{ route('admin.pages.edit.product', ['id' => $product->id]) }}" class="btn btn-primary btn-sm mr-1">
+                          <i class="fas fa-edit"></i>
                         </a>
-                      </td>
-                    </tr>
-                </tfoot>
+                      <a href="{{route('admin.pages.delete.product', ['id' => $product->id]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this product?')">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  @endforeach
+                      
+                </tbody>
               </table>
             </div>
             <!-- /.card-body -->

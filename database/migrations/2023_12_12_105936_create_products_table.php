@@ -11,22 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('roles', function (Blueprint $table) {
-            $table->Column('id');
-            $table->Column('name');
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     * @return void
      */
     public function down(): void
     {
-        Schema::table('roles', function (Blueprint $table) {
-            $table->Column('id');
-            $table->Column('name');
-        });
+        Schema::dropIfExists('products');
     }
 };

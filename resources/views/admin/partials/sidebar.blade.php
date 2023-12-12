@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route('admin.dashboard')}}" class="brand-link">
+    <a href="{{route('admin.pages.dashboard')}}" class="brand-link">
       <img src="{{asset("assets/dist/img/logo.png")}}" alt="pharmacy.pk" class="brand-image" style="width: 60px; height:60px; object-fit: contain">
       <span class="brand-text font-weight-light">{{ env('APP_NAME') }}</span>
     </a>
@@ -25,7 +25,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
           <li class="nav-item">
-            <a href="{{route('admin.dashboard')}}" class="nav-link">
+            <a href="{{route('admin.pages.dashboard')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dashboard
@@ -41,11 +41,11 @@
                 </p>
             </a>
             <div class="dropdown-menu" aria-labelledby="manageUsersDropdown">
-                <a class="dropdown-item" href="{{route('admin.view.doctor')}}">
+                <a class="dropdown-item" href="{{route('admin.pages.view.doctor')}}">
                     <i class="nav-icon fas fa-user-md"></i>
                     Doctors
                 </a>
-                <a class="dropdown-item" href="{{route('admin.view.patient')}}">
+                <a class="dropdown-item" href="{{route('admin.pages.view.patient')}}">
                     <i class="nav-icon fas fa-user"></i>
                     Patients
                 </a>
@@ -53,7 +53,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="{{ route('admin.view.product') }}" class="nav-link">
+          <a href="{{ route('admin.pages.view-product') }}" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i> 
               <p>
                   Manage Products
@@ -62,7 +62,7 @@
       </li>
 
           <li class="nav-item">
-            <a href="{{route('admin.view.order')}}" class="nav-link">
+            <a href="{{route('admin.pages.view.order')}}" class="nav-link">
               <i class="nav-icon fas fa-check"></i>
               <p>
                 Manage Orders
@@ -71,7 +71,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{route('admin.view.appointment')}}" class="nav-link">
+            <a href="{{route('admin.pages.view.appointment')}}" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 Manage Appointment
