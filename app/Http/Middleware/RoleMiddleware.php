@@ -4,8 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class RoleMiddleware
 {
@@ -25,14 +23,16 @@ class RoleMiddleware
         // Check if the user's role matches the required role
         switch ($role) {
             case 'admin':
-                if ($user->role->role_id == 1) {
-                    return 'admin.dashboard';
-                }
+                return $user->role->role_id == 1 ? 'admin.dashboard' : false;
+                break;
 
-                case 'user':
-                    if ($user->role->role_id == 2) {
-                        return 'user.Welcome';
-                    }
+            case 'doctor':
+                return $user->role->role_id == 2 ? 'doctor.doctor-dashboard' : false;
+                break;
+
+            case 'patient':
+                return $user->role->role_id == 3 ? 'patient.patient-dashboard' : false;
+                break;
 
             // Add more cases if you have additional roles
 

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
+    //show view function
     public function viewForm(){
         $user = User::where('role_id', 2)->get();
         return view('admin.pages.view-doctor')->with('user', $user);
@@ -16,35 +17,25 @@ class DoctorController extends Controller
 {
     return view('admin.pages.add-doctor');
 }
+//create function
     public function addDoctor(Request $request)
     {
-        // Validate the form data
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-            'role_id' => 'required|numeric',
         ]);
-
-        // Check if the role_id is valid (you can customize this logic)
-        if ($request->input('role_id') != 2) {
-            return redirect()->back()->with('error', 'Please set role_id 2 for Doctor.');
-        }
-
-        // Create a new user with the provided data
+        $defaultpass = 'password';
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
-            'role_id' => $request->input('role_id'),
+            'password' => bcrypt($defaultpass),
+            'role_id' => 2,
         ]);
-
-        // Redirect back with a success message
         return redirect()->route('admin.pages.view.doctor')->with('Doctor added successfully.');
     }
+    //edit function
     public function editDoctor($id)
 {
-    // Find the doctor by ID
     $doctor = User::findOrFail($id);
 
     return view('admin.pages.edit-doctor', compact('doctor'));

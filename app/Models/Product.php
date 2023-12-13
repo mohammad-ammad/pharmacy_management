@@ -9,9 +9,15 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = ['product_name', 'product_description', 'quantity', 'price', 'user_id'];
-    //relation 
+
+    //relation with user table
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    //relation with orders table
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

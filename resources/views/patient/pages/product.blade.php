@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('patient.layout')
 
 @section('styles')
     <link rel="stylesheet" href="{{asset('/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
@@ -12,12 +12,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">View All Patient Record</h1>
+              <h1 class="m-0">View All Products & Place Order From Here</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Manage Patient</li>
+                <li class="breadcrumb-item"><a href="{{route('patient.patient.dashboard')}}">Home</a></li>
+                <li class="breadcrumb-item active"><a href="{{route('patient.pages.product')}}"> Products</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -28,12 +28,7 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">All Patient</h3>
-              <div class="card-tools">
-                <a href="{{route('admin.pages.patient.add.form')}}" class="btn btn-primary">
-                  Add Patient
-                </a>
-              </div>
+              <h3 class="card-title">View All Products</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -41,28 +36,30 @@
                 <thead>
                 <tr>
                   <th>SN.</th>
-                  <th>Patient Name</th>
-                  <th>Patient Email</th>
+                  <th>Product Name</th>
+                  <th>Description</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
                   <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($patients as $index => $patient)
-                    <tr>
-                      <td>{{$index + 1}}</td>
-                      <td>{{$patient->name}}</td>
-                      <td>{{$patient->email}}</td>
-                      <td class="d-flex">
-                          <a href="{{route('admin.pages.edit.patient', ['id' => $patient->id])}}" class="btn btn-primary btn-sm mr-1">
-                            <i class="fas fa-edit"></i>
-                          </a>
-                        <a href="{{route('admin.pages.delete.patient', ['id' => $patient->id])}}" class="btn btn-danger btn-sm">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    @endforeach
-                </tfoot>
+
+                  @foreach($products as $index => $product)
+                 <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $product->product_name }}</td>
+                    <td>{{ $product->product_description }}</td>
+                    <td>{{ $product->quantity }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td class="d-flex">
+                      <a href="{{ route('patient.orders.place', ['productId' => $product->id]) }}" class="btn btn-primary btn-sm mr-1">
+                          Place order
+                      </a>
+                  </td>
+                  </tr>
+                  @endforeach    
+                </tbody>
               </table>
             </div>
             <!-- /.card-body -->

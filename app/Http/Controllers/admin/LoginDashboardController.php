@@ -32,11 +32,13 @@ class LoginDashboardController extends Controller
             }
             elseif ($user->role_id == 2) 
             {
-                return redirect()->route('user.Welcome');
+
+                return redirect()->route('doctor.doctor-dashboard');
             }
             elseif ($user->role_id == 3) 
             {
-                return redirect()->route('user.Welcome');
+                // dd($user);
+                return redirect()->route('patient.patient-dashboard');
             }
         }
             else
@@ -47,8 +49,11 @@ class LoginDashboardController extends Controller
     public function showDashboard(){
         return view('admin.pages.dashboard');
     }
-    public function index(){
-        return view('user.Welcome');
+    public function indexDoctor(){
+        return view('doctor.doctor-dashboard');
+    }
+    public function indexPatient(){
+        return view('patient.patient-dashboard');
     }
     public function logout(Request $request)
 {

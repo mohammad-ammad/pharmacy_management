@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('patient.layout')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -13,7 +13,7 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <h1>This page is for normal users ..</h1>
+            <h1>This page is for Patient ..</h1>
         </div>
     </div>
 @endsection

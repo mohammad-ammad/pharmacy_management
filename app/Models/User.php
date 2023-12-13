@@ -25,11 +25,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Roles::class, 'role_id', 'role_id');
     }
-
     // Relation with products
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+    //relation with order table
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }
 
