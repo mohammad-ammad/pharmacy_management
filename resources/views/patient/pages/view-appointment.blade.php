@@ -16,7 +16,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.pages.dashboard') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('patient.patient.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active"><a href="#">Appointments</a></li>
                     </ol>
                 </div><!-- /.col -->
@@ -28,7 +28,12 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">View All Patient Appointments</h3>
+                    <h3 class="card-title">View All Appointments</h3>
+                    <div class="card-tools">
+                        <a href="{{route('patient.add.appointment')}}" class="btn btn-primary">
+                            Add Appointment
+                        </a>
+                    </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

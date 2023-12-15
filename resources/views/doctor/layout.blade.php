@@ -1,20 +1,20 @@
-@include('admin.partials.header')
+@include('doctor.partials.header')
 
 <div class="wrapper">
 
-    @include('admin.partials.topNavigation')
+    @include('doctor.partials.topNavigation')
 
   <!-- Main Sidebar Container -->
-  @include('admin.partials.sidebar')
+  @include('doctor.partials.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     @yield('content')
   </div>
   <!-- /.content-wrapper -->
-  @include('admin.partials.master_search')
+  @include('doctor.partials.master_search')
   <!-- Control Sidebar -->
-  @include('admin.partials.sidecontrol')
+  @include('doctor.partials.sidecontrol')
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->

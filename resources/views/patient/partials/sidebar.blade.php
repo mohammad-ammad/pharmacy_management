@@ -36,27 +36,36 @@
           <a href="{{ route('patient.pages.product') }}" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i> 
               <p>
-                  Manage Products
+                Place Order Of Product
               </p>
           </a>
       </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">
+      <li class="nav-item">
+          <a href="{{route('patient.view.order')}}" class="nav-link">
               <i class="nav-icon fas fa-check"></i>
               <p>
-                Manage Orders
+                  View Order
               </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="nav-icon fa fa-file"></i>
-              <p>
+          </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="manageAppointmentDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="nav-icon fa fa-file"></i>
+            <p>
                 Manage Appointment
-              </p>
+            </p>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="manageAppointmentDropdown">
+            <a class="dropdown-item" href="{{route('patient.view.appointment')}}">
+                <i class="nav-icon far fa-file"></i>
+                Add Appointment
             </a>
-          </li>
+            <a class="dropdown-item" href="#">
+                <i class="nav-icon fas fa-check"></i>
+                Appointment Status
+            </a>
+        </div>
+    </li>
 
           <li class="nav-item">
             <a href="{{route('admin.login')}}" class="nav-link">

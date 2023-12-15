@@ -51,7 +51,7 @@
                     <td>{{ $product->product_name }}</td>
                     <td>{{ $product->product_description }}</td>
                     <td>{{ $product->quantity }}</td>
-                    <td>{{ $product->price }}</td>
+                    <td>{{ $product->price * $product->quantity}}</td>
                     <td class="d-flex">
                       <a href="{{ route('patient.orders.place', ['productId' => $product->id]) }}" class="btn btn-primary btn-sm mr-1">
                           Place order

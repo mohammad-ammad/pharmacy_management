@@ -62,7 +62,7 @@
       </li>
 
           <li class="nav-item">
-            <a href="{{route('admin.pages.view.order')}}" class="nav-link">
+            <a href="{{ route('admin.pages.AdminOrder.view') }}" class="nav-link">
               <i class="nav-icon fas fa-check"></i>
               <p>
                 Manage Orders

@@ -5,25 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Appointment extends Model
 {
     use HasFactory;
     protected $fillable = [
         'patient_id',
-        'product_id',
-        'quantity',
-        'price',
+        'doctor_id',
+        'description',
         'status',
-        'payment_method',
-        // Add other fields as needed
+        'appointment_date',
     ];
-
-    //relation with user table
-    public function product()
+    public function doctor()
     {
-        return $this->belongsTo(Product::class, 'product_id');
+        return $this->belongsTo(User::class, 'doctor_id');
     }
-
     public function patient()
     {
         return $this->belongsTo(User::class, 'patient_id');

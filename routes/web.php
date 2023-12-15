@@ -7,9 +7,12 @@ use App\Http\Controllers\admin\PatientController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\AppointmentController;
+use App\Http\Controllers\admin\AdminOrderController;
 //patient
 use App\Http\Controllers\patient\OrderPlaceController;
-
+use App\Http\Controllers\patient\OrderInfoController;
+use App\Http\Controllers\patient\PatientOrderController;
+use App\Http\Controllers\patient\AppointmentViewController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,12 +72,27 @@ Route::get('/admin/dashboard/edit-order', [App\Http\Controllers\admin\OrderContr
 //update and delete is remaining
 
 //Appointment
-Route::get('/admin/dashboard/view-appointment', [App\Http\Controllers\admin\AppointmentController::class, 'showList'])->name('admin.pages.view.appointment');
-Route::get('/admin/dashboard/add-appointment', [App\Http\Controllers\admin\AppointmentController::class, 'addAppointment'])->name('admin.pages.add.appointment');
-Route::get('/admin/dashboard/edit-appointment', [App\Http\Controllers\admin\AppointmentController::class, 'editAppointment'])->name('admin.pages.edit.appointment');
+Route::get('/admin/dashboard/view-appointment', [App\Http\Controllers\admin\AppointmentController::class, 'viewAppointments'])->name('admin.pages.view.appointment');
 
 //Patient 
 //View-Product
 Route::get('/patient/dashboard/view-product', [App\Http\Controllers\patient\ProductController::class, 'showList'])->name('patient.pages.product');
 //order
 Route::get('/patient/orders/place/{productId}', [App\Http\Controllers\patient\OrderPlaceController::class, 'placeOrder'])->name('patient.orders.place');
+//admin view orders
+Route::get('admin/dashboard/orders/list', [App\Http\Controllers\admin\AdminOrderController::class, 'ListOrder'])->name('admin.pages.AdminOrder.view');
+//admin edit orders
+Route::get('admin/dashboard/orders/edit/{orderId}', [App\Http\Controllers\admin\AdminOrderController::class, 'editOrder'])->name('admin.pages.AdminOrders.edit');
+//admin update orders
+Route::put('/admin/dashboard/update-Order/{orderId}', [App\Http\Controllers\admin\AdminOrderController::class, 'updateOrder'])->name('admin.pages.update.AdminOrder');
+//patient
+//View order
+// routes/web.php
+Route::get('/patient/view-order', [App\Http\Controllers\patient\OrderPlaceController::class, 'viewOrder'])->name('patient.view.order');
+//Appointments
+Route::get('/patient/dashboard/view/appointment', [App\Http\Controllers\patient\AppointmentViewController::class, 'viewAppointment'])->name('patient.view.appointment');
+Route::get('/patient/dashboard/add/appointment', [App\Http\Controllers\patient\AppointmentViewController::class, 'addAppointment'])->name('patient.add.appointment');
+Route::post('/patient/dashboard/add/newAppointment', [App\Http\Controllers\patient\AppointmentViewController::class, 'AddNewAppointment'])->name('patient.add.new.appointment');
+//doctor edit and update Appointments
+Route::get('appointments/edit-status/{id}', [App\Http\Controllers\doctor\DoctorAppointmentController::class, 'editAppointmentStatus'])->name('doctor.appointments.edit.status');
+    Route::put('appointments/update-status/{id}', [App\Http\Controllers\doctor\DoctorAppointmentController::class, 'updateAppointmentStatus'])->name('doctor.appointments.update.status');

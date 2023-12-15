@@ -33,12 +33,12 @@ class LoginDashboardController extends Controller
             elseif ($user->role_id == 2) 
             {
 
-                return redirect()->route('doctor.doctor-dashboard');
+                return redirect()->route('doctor.doctor.dashboard');
             }
             elseif ($user->role_id == 3) 
             {
                 // dd($user);
-                return redirect()->route('patient.patient-dashboard');
+                return redirect()->route('patient.patient.dashboard');
             }
         }
             else

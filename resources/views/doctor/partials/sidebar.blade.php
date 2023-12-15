@@ -25,7 +25,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
           <li class="nav-item">
-            <a href="{{route('admin.pages.dashboard')}}" class="nav-link">
+            <a href="{{route('doctor.doctor.dashboard')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Dashboard
@@ -33,7 +33,7 @@
             </a>
           </li>
 
-          <li class="nav-item dropdown">
+          {{-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="manageUsersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
@@ -50,28 +50,28 @@
                     Patients
                 </a>
             </div>
-        </li>
+        </li> --}}
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a href="{{ route('admin.pages.view-product') }}" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i> 
               <p>
                   Manage Products
               </p>
           </a>
-      </li>
+      </li> --}}
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{route('admin.pages.view.order')}}" class="nav-link">
               <i class="nav-icon fas fa-check"></i>
               <p>
                 Manage Orders
               </p>
             </a>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
-            <a href="{{route('admin.pages.view.appointment')}}" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 Manage Appointment

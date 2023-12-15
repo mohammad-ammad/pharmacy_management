@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    public function showList()
+    public function viewAppointments()
 {
-    return view('admin.pages.view-appointment');
+    $appointments = Appointment::all();
+    return view('admin.pages.view-appointment', compact('appointments'));
 }
-    public function addAppointment(){
-        return view('admin.pages.add-appointment');
-    }
-    public function editAppointment(){
-        return view('admin.pages.edit-appointment');
-    }
+    
 }

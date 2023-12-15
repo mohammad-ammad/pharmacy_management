@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('patient.layout')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('/assets/plugins/select2/css/select2.min.css') }}">
@@ -43,8 +43,9 @@
                         <div class="form-group">
                             <label for="product_id">Select Product:</label>
                             <select name="product_id" class="form-control select2" style="width: 100%;" required>
-                                <!-- Populate this dropdown with your products -->
-                                <!-- Example: <option value="1">Product 1</option> -->
+                                @foreach($products as $product)
+                                <option value="{{ $product->id }}">{{ $product->name }} - ${{ $product->price }}</option>
+                            @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -77,7 +78,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Add other fields for additional sections as needed -->
             </div>
             <div class="card-tools d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
