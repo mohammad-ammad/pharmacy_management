@@ -31,7 +31,7 @@ class DoctorController extends Controller
             'password' => bcrypt($defaultpass),
             'role_id' => 2,
         ]);
-        return redirect()->route('admin.pages.view.doctor')->with('Doctor added successfully.');
+        return redirect()->route('admin.pages.view.doctor')->with('success', 'Doctor added successfully.');
     }
     //edit function
     public function editDoctor($id)
@@ -52,13 +52,13 @@ public function updateDoctor(Request $request, $id)
         'name' => $request->input('name'),
         'email' => $request->input('email'),
     ]);
-    return redirect()->route('admin.pages.view.doctor')->with('Doctor Record Successfully Updated');
+    return redirect()->route('admin.pages.view.doctor')->with('success', 'Doctor Record Successfully Updated');
 }
 //delete function
 public function deleteDoctor(Request $request, $id)
 {
     $user = User::find($id);
     $user->delete();
-    return Redirect()->route('admin.pages.view.doctor')->with('Doctor Record Deleted successfully');
+    return Redirect()->route('admin.pages.view.doctor')->with('success', 'Doctor Record Deleted successfully');
 }
 }

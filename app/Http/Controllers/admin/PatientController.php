@@ -49,13 +49,13 @@ class PatientController extends Controller
         'name' => $request->input('name'),
         'email' => $request->input('email'),
         ]);
-        return redirect()->route('admin.pages.view.patient')->with('Patient Record Updated Successfully.');
+        return redirect()->route('admin.pages.view.patient')->with('success', 'Patient Record Updated Successfully.');
     }
     //delete function
     public function deletePatient(Request $request, $id)
     {
     $user = User::find($id);
     $user->delete();
-    return redirect()->route('admin.pages.view.patient')->with('Patient Record Deleted Successfully.');
+    return redirect()->route('admin.pages.view.patient')->with('success', 'Patient Record Deleted Successfully.');
 }
 }

@@ -2,18 +2,26 @@
 
 namespace App\Http\Controllers\doctor;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
+
 use App\Models\Appointment;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
 class DoctorAppointmentController extends Controller
 {
+    public function listAppointments()
+{
+    $appointments = Appointment::all();
+    return view('doctor.pages.view-appointment', compact('appointments'));
+}
     public function editAppointmentStatus($id)
     {
         $appointment = Appointment::findOrFail($id);
-        return view('doctor.edit-appointment-status', compact('appointment'));
+        $doctors = User::all();
+        return view('doctor.pages.edit-appointment', compact('appointment' , 'doctors'));
     }
-    
     public function updateAppointmentStatus(Request $request, $id)
     {
         $request->validate([
@@ -23,7 +31,7 @@ class DoctorAppointmentController extends Controller
         $appointment = Appointment::findOrFail($id);
         $appointment->update(['status' => $request->input('status')]);
     
-        return redirect()->route('doctor.appointments')->with('success', 'Appointment status updated successfully.');
+        return redirect()->route('doctor.appointments.list')->with('success', 'Appointment status updated successfully.');
     }
     
     

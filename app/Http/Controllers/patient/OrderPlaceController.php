@@ -20,6 +20,9 @@ class OrderPlaceController extends Controller
         if (!$product) {
             return redirect()->route('patient.pages.product')->with('error', 'Selected product not found.');
         }
+        if ($product->quantity <= 0) {
+            return redirect()->route('patient.pages.product')->with('error', 'Sorry, the product is sold out.');
+        }
         $totalprice = $product->price;
         Order::create([
             'patient_id' => $patientId,
@@ -37,8 +40,6 @@ class OrderPlaceController extends Controller
     public function viewOrder()
 {
     $user = Auth::user();
-
-    // Assuming you have a relationship named 'orders' on the User model
     $orders = $user->orders;
 
     return view('patient.pages.view-order', compact('orders'));

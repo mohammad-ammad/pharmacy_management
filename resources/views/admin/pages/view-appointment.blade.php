@@ -1,4 +1,4 @@
-@extends('patient.layout')
+@extends('admin.layout')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -41,7 +41,6 @@
                             <th>Description</th>
                             <th>Status</th>
                             <th>Appointment Date</th>
-                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -54,17 +53,6 @@
                                 <td>{{ $appointment->description }}</td>
                                 <td>{{ $appointment->status }}</td>
                                 <td>{{ $appointment->appointment_date }}</td>
-                                <td class="d-flex">
-                                    <a href="#"
-                                       class="btn btn-primary btn-sm mr-1">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="#"
-                                       class="btn btn-danger btn-sm"
-                                       onclick="return confirm('Are you sure you want to delete this appointment?')">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
                             </tr>
                         @endforeach
 

@@ -61,17 +61,17 @@
           </a>
       </li> --}}
 
-          {{-- <li class="nav-item">
-            <a href="{{route('admin.pages.view.order')}}" class="nav-link">
-              <i class="nav-icon fas fa-check"></i>
+          <li class="nav-item">
+            <a href="{{route('doctor.info.create')}}" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
               <p>
-                Manage Orders
+                Manage Profile
               </p>
             </a>
-          </li> --}}
+          </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('doctor.appointments.list')}}" class="nav-link">
               <i class="nav-icon fa fa-file"></i>
               <p>
                 Manage Appointment

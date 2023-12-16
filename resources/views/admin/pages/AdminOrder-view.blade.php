@@ -47,7 +47,7 @@
                                     <a href="{{route('admin.pages.AdminOrders.edit', ['orderId' => $order->id])}}" class="btn btn-primary btn-sm mr-1">
                                       <i class="fas fa-edit"></i>
                                     </a>
-                                  <a href="" class="btn btn-danger btn-sm">
+                                  <a href="{{route('admin.pages.delete.AdminOrder', ['orderId' =>$order->id])}}" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash"></i>
                                   </a>
                                 </td>

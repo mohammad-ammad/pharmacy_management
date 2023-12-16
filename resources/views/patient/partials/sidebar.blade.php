@@ -48,23 +48,19 @@
               </p>
           </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="manageAppointmentDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('patient.view.appointment')}}" >
             <i class="nav-icon fa fa-file"></i>
             <p>
-                Manage Appointment
+                Add & View Appointment
             </p>
         </a>
-        <div class="dropdown-menu" aria-labelledby="manageAppointmentDropdown">
+        {{-- <div class="dropdown-menu" aria-labelledby="manageAppointmentDropdown">
             <a class="dropdown-item" href="{{route('patient.view.appointment')}}">
                 <i class="nav-icon far fa-file"></i>
                 Add Appointment
             </a>
-            <a class="dropdown-item" href="#">
-                <i class="nav-icon fas fa-check"></i>
-                Appointment Status
-            </a>
-        </div>
+        </div> --}}
     </li>
 
           <li class="nav-item">

@@ -15,7 +15,7 @@ class AdminOrderController extends Controller
         return view('admin.pages.AdminOrder-view', compact('orders'));
     }
     //Edit Order
-    public function editOrder($id)
+    public function editOrder(Request $request, $id)
     {
         $order = Order::with('product' , 'patient')->find($id);
         return view('admin.pages.AdminOrder-edit', compact('order'));
@@ -35,5 +35,13 @@ public function updateOrder(Request $request, $id)
     ]);
 
     return redirect()->route('admin.pages.AdminOrder.view')->with('success', 'Order Updated Successfully');
+}
+//delete fxn
+public function deleteOrder($id)
+{
+    $order = Order::findOrFail($id);
+    $order->delete();
+
+    return redirect()->route('admin.pages.AdminOrder.view')->with('success', 'Order deleted successfully.');
 }
 }
